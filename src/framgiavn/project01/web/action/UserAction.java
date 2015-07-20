@@ -29,18 +29,18 @@ public class UserAction extends ActionSupport {
 		this.user = user;
 	}
 
-	public String findByUserId() {
+	public String findUserById() {
 		try {
-			user = userBusiness.findByUserId(user.getUser_id());
+			user = userBusiness.findById(user.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return SUCCESS;
 	}
 
-	public String findByUsername() {
+	public String findUserByName() {
 		try {
-			user = userBusiness.findByUsername(user.getUsername());
+			user = userBusiness.findByName(user.getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,8 +48,7 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String homePage() {
-		System.out
-				.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			
 		return SUCCESS;
 	}
 

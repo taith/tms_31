@@ -7,15 +7,15 @@
 
 	<!-- Configure NameSpace for action web -->
 	<package name="User" namespace="/user" extends="default-web">
-		<action name="findByUserId*" class="springUserAction" method="findByUserId">
-			<param name="user.user_id">{1}</param>
+		<action name="findUserById*" class="springUserAction" method="findUserById">
+			<param name="user.id">{1}</param>
 			<result name="success">User.Info</result>
 			<result name="input">User.Info</result>
 			<result name="error">User.Info</result>
 		</action>
 
-		<action name="findByUsername*" class="springUserAction" method="findByUsername">
-			<param name="user.username">{1}</param>
+		<action name="findUserByName*" class="springUserAction" method="findUserByName">
+			<param name="user.name">{1}</param>
 			<result name="success">User.Info</result>
 			<result name="error">User.Info</result>
 		</action>
