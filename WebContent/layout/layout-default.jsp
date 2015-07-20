@@ -27,6 +27,9 @@
 	<link rel="stylesheet" href="<c:url value='${item}'/>" type="text/css"
 		media="screen" />
 </c:forEach>
+<link rel="stylesheet" href="/tms_31/css/bootstrap.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/tms_31/css/bootstrap.min.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/tms_31/css/freelancer.css" type="text/css" media="screen">
 
 <%-- Default JS --%>
 <tiles:useAttribute id="list" name="default-js"
@@ -80,7 +83,7 @@
 		<!--start login-->
 		<tiles:insertAttribute name="header" />
 		<!--end login-->
-		<div id="container">
+		<div id="container" style="width: 900px; margin: auto; margin-top: 100px; margin-bottom: 100px;">
 			<tiles:insertAttribute name="body" />
 		</div>
 		<div id="footer">

@@ -14,5 +14,13 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="CourseBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.CourseBusinessImpl">
+				<property name="courseDAO" ref="CourseDAO" />
+			</bean>
+		</property>
+	</bean>
 
 </beans>
