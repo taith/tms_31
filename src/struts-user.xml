@@ -6,7 +6,7 @@
 <struts>
 
 	<!-- Configure NameSpace for action web -->
-	<package name="User" namespace="/user" extends="default-web">
+	<package name="User" namespace="/users" extends="default-web">
 		<action name="findUserById*" class="springUserAction" method="findUserById">
 			<param name="user.id">{1}</param>
 			<result name="success">User.Info</result>
@@ -18,6 +18,33 @@
 			<param name="user.name">{1}</param>
 			<result name="success">User.Info</result>
 			<result name="error">User.Info</result>
+		</action>
+		<action name="detail*" class="springUserAction" method="showUser">
+			<param name="user.id">{1}</param>
+			<result name="success">User.Info</result>
+		</action>		
+		<action name="new">			
+			<result name="success">User.add</result>
+		</action>
+		<action name="create" class="springUserAction" method="create">			
+			<result name="success">User.all</result>			
+		</action>
+		<action name="edit*" class="springUserAction" method="editUserPage">
+			<param name="user.id">{1}</param>			
+			<result name="success">User.update</result>
+			<result name="error">User.login</result>
+		</action>
+		<action name="update" class="springUserAction" method="updateUser">
+			<result name="success">User.Info</result>
+			<result name="error">User.update</result>
+			<result name="login">User.login</result>
+		</action>
+		<action name="delete*" class="springUserAction" method="destroyUser">
+			<param name="user.id">{1}</param>
+			<result name="success">User.all</result>			
+		</action>
+		<action name="" class="springUserAction" method="viewAll">			
+			<result name="success">User.all</result>
 		</action>
 	</package>
 	<package name="Session" extends="default-web">

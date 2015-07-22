@@ -1,5 +1,7 @@
 package framgiavn.project01.web.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -25,15 +27,16 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	public User findById(Integer id, boolean lock) throws Exception {
 		try {
 			Query query = getSession().getNamedQuery("User.SelectUserById");
-			if (lock)
-				query.setLockMode("User", LockMode.UPGRADE);
+			//if (lock)
+				//query.setLockMode("User", LockMode.UPGRADE);
 			query.setParameter("id", id);
 			return (User) query.uniqueResult();
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;
 		}
-	}
+	}	
+		
 
 	public User findByname(String name) throws Exception {
 		// TODO Auto-generated method stub
@@ -59,4 +62,49 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		}
 	}
 
+	@Override
+	public void addUser(User user) throws Exception {
+		log.debug("Add user");
+		try {			
+			getHibernateTemplate().save(user);
+		} catch (RuntimeException re) {
+			log.error("Add user failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public void updateUser(User user) throws Exception {
+		log.debug("Update user");
+		try {
+			getHibernateTemplate().update(user);
+		} catch (RuntimeException re) {
+			log.error("Update failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public void deleteUser(Integer id) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.DeleteById");
+			query.setParameter("id", id);
+			query.executeUpdate();
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	@Override
+	public List<User> listUser() {
+		log.debug("List all users");
+		try{
+			Query query = getSession().getNamedQuery("User.SelectAll");
+			return query.list();
+		} catch (RuntimeException re) {
+			log.error("List all users error!", re);
+			throw re;
+		}
+	}
 }

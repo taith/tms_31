@@ -11,11 +11,13 @@ public class User implements Serializable {
 
 	private Integer id;
 	private String name;
-	private String email;
+	private String email;	
 	private Integer suppervisor;
 	private String password;
-	private Date  create_at;
-	private Date update_at;
+	private Date  createAt;
+	private Date updateAt;
+	private String strSupervisor;	
+	private String confirmPass;
 	public Integer getId() {
 		return id;
 	}
@@ -43,26 +45,31 @@ public class User implements Serializable {
 	public String getPassword() {
 		return password;
 	}
+	public Date getCreateAt() {
+		return createAt;
+	}
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+	public Date getUpdateAt() {
+		return updateAt;
+	}
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
+	}
+	public String getStrSupervisor() {
+		return strSupervisor;
+	}
+	public void setStrSupervisor(String strSupervisor) {
+		this.strSupervisor = strSupervisor;
+	}
+	public String getConfirmPass() {
+		return confirmPass;
+	}
+	public void setConfirmPass(String confirmPass) {
+		this.confirmPass = confirmPass;
+	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public Date getCreate_at() {
-		return create_at;
-	}
-	public void setCreate_at(Date create_at) {
-		this.create_at = create_at;
-	}
-	public Date getUpdate_at() {
-		return update_at;
-	}
-	public void setUpdate_at(Date update_at) {
-		this.update_at = update_at;
-	}
-	public User() {
-	
-	}
-	
-	
-
-	
+	}			
 }
