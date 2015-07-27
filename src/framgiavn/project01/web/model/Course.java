@@ -1,8 +1,9 @@
 package framgiavn.project01.web.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Course {
+public class Course implements Serializable {
 
 	private Integer id;
 	private String name;

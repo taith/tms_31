@@ -20,4 +20,16 @@
 			<result name="error">User.Info</result>
 		</action>
 	</package>
+	<package name="Session" extends="default-web">
+		<action name="login">
+			<result>User.login</result>
+		</action>
+		<action name="dologin" class="springUserAction" method="dologin">
+			<result name="success">User.Info</result>
+			<result name="error">User.login</result>
+		</action>
+		<action name="logout" class="springUserAction" method="logout">
+			<result name="success">User.login</result>
+		</action>
+	</package>
 </struts>

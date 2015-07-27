@@ -3,8 +3,7 @@ package framgiavn.project01.web.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-
+public class User implements Serializable {	
 	/**
 	 * 
 	 */
