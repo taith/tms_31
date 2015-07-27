@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="AllCourse" extends="Default.Web">
+		<put-attribute name="body" value="/course/course_all.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="Course.Info" extends="Default.Web">
+		<put-attribute name="body" value="/course/course_info.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	<definition name="Course.Add" extends="Default.Web">
+		<put-attribute name="body" value="/course/course_add.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>	
+		<put-list-attribute name="css">
+		</put-list-attribute>	
+	</definition>
+	
+	<definition name="Course.Update" extends="Default.Web">
+		<put-attribute name="body" value="/course/course_update.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>	
+		<put-list-attribute name="css">
+		</put-list-attribute>	
+	</definition>
+</tiles-definitions>

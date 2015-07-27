@@ -46,4 +46,17 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		return null;
 	}
 
+
+	@Override
+	public User findByEmail(String email) throws Exception {
+		try {
+			Query query = getSession().getNamedQuery("User.SelectByEmail");
+			query.setParameter("email", email);
+			return (User) query.uniqueResult();
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
 }

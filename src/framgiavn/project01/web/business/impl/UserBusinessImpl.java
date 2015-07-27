@@ -3,6 +3,7 @@ package framgiavn.project01.web.business.impl;
 import framgiavn.project01.web.business.UserBusiness;
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.User;
+import framgiavn.project01.web.ulti.Helpers;
 
 public class UserBusinessImpl implements UserBusiness {
 
@@ -34,6 +35,19 @@ public class UserBusinessImpl implements UserBusiness {
 			e.printStackTrace();
 			throw e;
 		}
+	}
+
+	@Override
+	public User login(String email, String pass) throws Exception {
+		if (pass.equals("") || email.equals("")) {			
+			return null;
+		}		
+		User user = getUserDAO().findByEmail(email);
+	
+		if (user != null && user.getPassword().equals(Helpers.encryptMd5(pass))) {										
+			return user;
+		}
+		return null;
 	}
 
 }
