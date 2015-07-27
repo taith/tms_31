@@ -8,4 +8,10 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
+	<bean name="CourseDAO" class="framgiavn.project01.web.dao.impl.CourseDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 </beans>

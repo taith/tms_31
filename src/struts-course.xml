@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="Courses" namespace="/courses" extends="default-web">
+		<action name="" class="springCourseAction" method="listAllCourse">
+			<result name="success">AllCourse</result>
+		</action>
+		
+		<action name="new">
+		    <result>Course.Add</result>
+		</action>
+		
+		<action name="create" class="springCourseAction" method="newCourse">
+			<result name="success">AllCourse</result>
+		</action>
+		
+		<action name="detail*" class="springCourseAction" method="showCourse">
+			<param name="course.id">{1}</param>
+			<result name="success">Course.Info</result>
+		</action>
+		<action name="delete*" class="springCourseAction" method="destroyCourse">
+			<param name="course.id">{1}</param>
+			<result name="success">AllCourse</result>
+			<result name="error">Course.Info</result>
+		</action>
+		
+		<action name="update" class="springCourseAction" method="updateCourse" >
+		    <result name="success">AllCourse</result>
+		    <result name="input">Course.Update</result>
+		    <result name="error">Course.Update</result>
+		</action>
+		
+		<action name="edit*" class="springCourseAction" method="editCoursePage">
+			<param name="course.id">{1}</param>
+		    <result>Course.Update</result>
+		</action>
+	</package>
+</struts>

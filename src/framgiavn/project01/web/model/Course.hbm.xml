@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="framgiavn.project01.web.model.Course" table="courses" 
+		dynamic-insert="true" dynamic-update="true">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" length="11" />
+            <generator class="identity" />
+		</id>
+		<property name="name" type="java.lang.String">
+            <column name="name" length="50"/>
+        </property>
+        <property name="detail" type="java.lang.String">
+            <column name="detail"/>
+        </property>              
+        <property name="startDate" type="java.util.Date">
+            <column name="start_date" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="end_date" />
+        </property>   
+	</class>
+	
+	<query name="Course.SelectCourseById">
+    	select course  
+    	from Course course
+    	where course.id = :id
+    </query>
+    
+    <query name="Course.SelectCourseAll">
+    	select course  
+    	from Course course
+    </query>
+    
+    <query name="Course.DeleteCourseById">
+    	delete from Course course where course.id = :id
+    </query>
+</hibernate-mapping>
