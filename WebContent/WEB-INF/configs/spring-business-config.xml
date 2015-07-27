@@ -22,5 +22,12 @@
 			</bean>
 		</property>
 	</bean>
+	<bean id="SubjectBusiness" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="framgiavn.project01.web.business.impl.SubjectBusinessImpl">
+				<property name="subjectDAO" ref="SubjectDAO" />
+			</bean>
+		</property>
+	</bean>
 
 </beans>

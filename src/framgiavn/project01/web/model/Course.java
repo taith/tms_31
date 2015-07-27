@@ -1,15 +1,24 @@
 package framgiavn.project01.web.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
-public class Course {
+public class Course implements Serializable {
 
 	private Integer id;
 	private String name;
 	private String detail;
 	private Date startDate;
 	private Date endDate;
-	
+	private Set<SubjectCourse> subjectCourses;
+
+	public Set<SubjectCourse> getSubjectCourses() {
+		return subjectCourses;
+	}
+	public void setSubjectCourses(Set<SubjectCourse> subjectCourses) {
+		this.subjectCourses = subjectCourses;
+	}
 	public Course() {
 
 	}
@@ -43,6 +52,5 @@ public class Course {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
 	
 }

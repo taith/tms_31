@@ -2,7 +2,7 @@
 
 <h3>Add new course</h3>
 <br>
-<s:form action="create" >
+<s:form action="/courses/create" >
 	<div class="form-group">
 		<input type="text" name="course.name" value="" id="addCourse_course_name" placeholder="Name" class="form-control">
 	</div>

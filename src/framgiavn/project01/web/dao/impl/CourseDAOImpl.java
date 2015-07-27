@@ -8,8 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.hql.ast.util.SessionFactoryHelper;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import framgiavn.project01.web.model.Course;
-import framgiavn.project01.web.model.User;
+import framgiavn.project01.web.model.*;
 import framgiavn.project01.web.dao.CourseDAO;
 import framgiavn.project01.web.ulti.Logit2;
 
@@ -81,7 +80,6 @@ public class CourseDAOImpl extends HibernateDaoSupport implements CourseDAO {
 			throw re;
 		}
 		
-	}
-	
+	}	
 
 }

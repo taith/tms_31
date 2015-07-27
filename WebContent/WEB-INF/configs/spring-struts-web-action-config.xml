@@ -15,4 +15,10 @@
 		scope="prototype">
 		<property name="courseBusiness" ref="CourseBusiness" />
 	</bean>
+	
+	<!-- ================== SUBJECT MODULE ================== -->
+	<bean id="springSubjectAction" class="framgiavn.project01.web.action.SubjectAction"
+		scope="prototype">
+		<property name="subjectBusiness" ref="SubjectBusiness" />
+	</bean>
 </beans>

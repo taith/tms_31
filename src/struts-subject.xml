@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="Subject" namespace="/subjects" extends="default-web">
+		<action name="" class="springSubjectAction" method="listAllSubject">
+			<result name="success">AllSubject</result>
+		</action>
+		<action name="detail*" class="springSubjectAction" method="showSubject">
+			<param name="subject.id">{1}</param>
+			<result name="success">Subject.Info</result>
+		</action>
+		
+		<action name="new">
+		    <result>Subject.Add</result>
+		</action>
+		
+		<action name="create" class="springSubjectAction" method="newSubject">
+			<result name="success">AllSubject</result>
+		</action>
+		
+		<action name="delete*" class="springSubjectAction" method="destroySubject">
+			<param name="subject.id">{1}</param>
+			<result name="success">AllSubject</result>
+			<result name="error">Subject.Info</result>
+		</action>
+		
+		<action name="update" class="springSubjectAction" method="updateSubject" >
+		    <result name="success">AllCourse</result>
+		    <result name="input">Subject.Update</result>
+		    <result name="error">Subject.Update</result>
+		</action>
+		
+		<action name="edit*" class="springSubjectAction" method="editSubjectPage">
+			<param name="subject.id">{1}</param>
+		    <result>Subject.Update</result>
+		</action>
+	</package>
+</struts>
