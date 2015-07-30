@@ -34,4 +34,5 @@
 	<!-- ===== Include Web Module Configuration ===== -->
 	<include file="struts-user.xml" />
 	<include file="struts-course.xml" />
+	<include file="struts-subject.xml" />
 </struts>

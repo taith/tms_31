@@ -1,6 +1,7 @@
 package framgiavn.project01.web.business.impl;
 
 import framgiavn.project01.web.model.Course;
+import framgiavn.project01.web.model.SubjectCourse;
 import framgiavn.project01.web.dao.CourseDAO;
 
 import java.util.List;

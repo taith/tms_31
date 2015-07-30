@@ -2,7 +2,7 @@ package framgiavn.project01.web.business;
 
 import java.util.List;
 
-import framgiavn.project01.web.model.Course;
+import framgiavn.project01.web.model.*;
 
 public interface CourseBusiness {
 	

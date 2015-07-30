@@ -3,7 +3,7 @@
 <h3>Edit Course</h3>
 <br>
 
-<s:form action="update" >
+<s:form action="/courses/update" >
 	<input type="hidden" name="course.id" value="<s:property value="course.id"/>" id="update_Course_id">
 	<div class="form-group">
 		<input type="text" name="course.name" value="<s:property value="course.name"/>" id="addCourse_Course_name" placeholder="Name" class="form-control">
