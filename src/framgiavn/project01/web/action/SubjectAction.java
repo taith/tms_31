@@ -1,15 +1,17 @@
 package framgiavn.project01.web.action;
 
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import framgiavn.project01.web.business.*;
-import framgiavn.project01.web.model.Course;
 import framgiavn.project01.web.model.Subject;
 
 public class SubjectAction extends ActionSupport {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	SubjectBusiness subjectBusiness;
 	Subject subject;
 	

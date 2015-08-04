@@ -1,8 +1,11 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<s:if test="#session.logined == 'true'">
+<s:if test="#session.currentUser != null">
 	<b>ID:</b><s:property value="user.id" /><br>
 	<b>Username:</b><s:property value="user.name" /><br>
 	<b>Email:</b><s:property value="user.email" /><br>
+	<s:if test="#session.currentUser.id == user.id">
+		<a href="<s:url value="/users/edit%{user.id}"/>">Edit</a>
+	</s:if>	
 	<a href="<s:url value="/logout"/>">Logout</a>
 </s:if>
 <s:else>	

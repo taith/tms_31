@@ -21,10 +21,10 @@
         <property name="password" type="java.lang.String">
             <column name="password" length="50" />
         </property>              
-        <property name="create_at" type="java.util.Date">
+        <property name="createAt" type="java.util.Date">
             <column name="create_at" length="50" />
         </property>
-        <property name="update_at" type="java.util.Date">
+        <property name="updateAt" type="java.util.Date">
             <column name="update_at" length="50" />
         </property>   
     </class>

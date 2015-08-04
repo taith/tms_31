@@ -3,7 +3,7 @@
 <a href="<s:url value="#"/>">Find by name</a>
 <a href="<s:url value="/courses/"/>">Show all course</a>
 <br><br>
-<s:if test="#session.logined == 'true'">	
+<s:if test="#session.currentUser != null">	
 	<a href="<s:url value="/logout"/>">Logout</a>
 </s:if>
 <s:else>	
