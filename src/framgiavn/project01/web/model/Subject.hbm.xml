@@ -17,7 +17,7 @@
         
         <set name="subjectCourses" inverse="true" lazy="false" cascade="all"
         	table="subjects_courses" fetch="join">
-        	<key column="subject_id" not-null="true" />
+        	<key column="subject_id" not-null="false" />
             <one-to-many class="framgiavn.project01.web.model.SubjectCourse" />
         </set>        
 	</class>
@@ -26,6 +26,12 @@
     	from Subject subject
     	left join subject.subjectCourses
     	where course_id=:id
+    </query>
+    <query name="SubjectCourse.SelectSCNotById">
+    	select subject  
+    	from Subject subject
+    	where not exists (
+    	from subject.subjectCourses where course_id=:id)
     </query>
 	<query name="Subject.SelectSubjectById">
     	select subject  

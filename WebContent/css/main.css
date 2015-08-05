@@ -1,4 +1,12 @@
 /* CSS Document */
+#container .subject-info {
+	border: 1px solid #1B6D85;
+	border-radius: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 80px;
+	text-align: center;
+}
 #header-main {
 	height: 60px;
 	position: relative;

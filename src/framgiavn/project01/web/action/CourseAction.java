@@ -14,8 +14,30 @@ public class CourseAction extends ActionSupport {
 	
 	CourseBusiness courseBusiness;
 	Course course;
-	public List<Course> courseList = new ArrayList<Course>();
+	SubjectCourse subjectCourse;
 	
+	public List<Course> courseList = new ArrayList<Course>();
+	public List<Subject> subjectInCourse = new ArrayList<Subject>();
+	public List<Subject> subjectNotInCourse = new ArrayList<Subject>();
+	
+	public SubjectCourse getSubjectCourse() {
+		return subjectCourse;
+	}
+	public void setSubjectCourse(SubjectCourse subjectCourse) {
+		this.subjectCourse = subjectCourse;
+	}
+	public List<Subject> getSubjectNotInCourse() {
+		return subjectNotInCourse;
+	}
+	public void setSubjectNotInCourse(List<Subject> subjectNotInCourse) {
+		this.subjectNotInCourse = subjectNotInCourse;
+	}
+	public List<Subject> getSubjectInCourse() {
+		return subjectInCourse;
+	}
+	public void setSubjectInCourse(List<Subject> subjectInCourse) {
+		this.subjectInCourse = subjectInCourse;
+	}
 	public void setCourseBusiness(CourseBusiness courseBusiness) {
 		this.courseBusiness = courseBusiness;
 	}
@@ -77,9 +99,23 @@ public class CourseAction extends ActionSupport {
 	public String editCoursePage() {
 		try {
 			course = courseBusiness.findById(course.getId());
+			subjectInCourse = courseBusiness.listSubjectInCourse(course.getId());
+			subjectNotInCourse = courseBusiness.listSubjectNotInCourse(course.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return SUCCESS;
+	}
+	
+	public String addSubjectCourse() {
+		courseBusiness.addSubjectToCourse(subjectCourse);
+		
+		return SUCCESS;
+	}
+	
+	public String removeSubjectCourse() {
+		courseBusiness.removeSubjectFromCourse(subjectCourse.getSubject_id(), subjectCourse.getCourse_id());
+		
 		return SUCCESS;
 	}
 }

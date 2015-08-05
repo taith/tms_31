@@ -21,11 +21,12 @@
             <column name="end_date" />
         </property>   
         
-        <set name="subjectCourses" inverse="true" lazy="false" cascade="all"
+       <list name="subjectCourses" inverse="true" lazy="false" cascade="all"
         	table="subjects_courses" fetch="join">
-        	<key column="course_id" not-null="true" />
+        	<key column="course_id" not-null="false" />
+        	<list-index column="subject_id" />
             <one-to-many class="framgiavn.project01.web.model.SubjectCourse" />
-        </set> 
+        </list> 
 	</class>
 	
 	<query name="Course.SelectCourseById">

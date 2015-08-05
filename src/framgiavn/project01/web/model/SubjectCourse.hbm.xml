@@ -8,11 +8,16 @@
 			<column name="id" length="11" />
             <generator class="identity" />
 		</id>
-		<many-to-one name="subjects" class="framgiavn.project01.web.model.Subject" fetch="join">
-			<column name="subject_id" not-null="true" />
-		</many-to-one>
-		<many-to-one name="courses" class="framgiavn.project01.web.model.Course" fetch="join">
-			<column name="course_id" not-null="true" />
-		</many-to-one>
+		<property name="subject_id" type="java.lang.Integer">
+            <column name="subject_id" length="11"/>
+        </property>
+        <property name="course_id" type="java.lang.Integer">
+            <column name="course_id" length="11"/>
+        </property>
+		
 	</class>
+	<query name="SubjectCourse.RemoveSubjectFromCourse">
+    	delete from SubjectCourse subjectCourse 
+    	where (subjectCourse.subject_id=:subject_id and subjectCourse.course_id=:course_id)
+    </query>
 </hibernate-mapping>

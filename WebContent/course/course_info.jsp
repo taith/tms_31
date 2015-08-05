@@ -12,9 +12,10 @@ Detail: <s:property value="course.detail" /><br>
 <s:if test="course.getSubjectCourses().size()>0">
 	<br>
 	<s:iterator value="course.subjectCourses">
+		<s:if test="subjects.id != null">
 		<a href="<s:url value="/subjects/detail"/><s:property value="subjects.id"/>">
 			<button type="button" class="btn btn-info"><s:property value="subjects.name"/></button></a>
-				
+		</s:if>		
 	</s:iterator>
 </s:if>
 <s:else>

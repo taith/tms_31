@@ -19,6 +19,8 @@
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.CourseBusinessImpl">
 				<property name="courseDAO" ref="CourseDAO" />
+				<property name="subjectDAO" ref="SubjectDAO" />
+				<property name="subjectCourseDAO" ref="SubjectCourseDAO" />
 			</bean>
 		</property>
 	</bean>

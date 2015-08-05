@@ -30,6 +30,9 @@
 <link rel="stylesheet" href="/tms_31/css/bootstrap.css" type="text/css" media="screen">
 <link rel="stylesheet" href="/tms_31/css/bootstrap.min.css" type="text/css" media="screen">
 <link rel="stylesheet" href="/tms_31/css/freelancer.css" type="text/css" media="screen">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/tms_31/js/bootstrap.js" type="text/javascript"></script>
+<script src="/tms_31/js/bootstrap.min.js" type="text/javascript"></script>
 
 <%-- Default JS --%>
 <tiles:useAttribute id="list" name="default-js"

@@ -2,7 +2,7 @@ package framgiavn.project01.web.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 public class Course implements Serializable {
 
@@ -11,12 +11,12 @@ public class Course implements Serializable {
 	private String detail;
 	private Date startDate;
 	private Date endDate;
-	private Set<SubjectCourse> subjectCourses;
+	private List<SubjectCourse> subjectCourses;
 
-	public Set<SubjectCourse> getSubjectCourses() {
+	public List<SubjectCourse> getSubjectCourses() {
 		return subjectCourses;
 	}
-	public void setSubjectCourses(Set<SubjectCourse> subjectCourses) {
+	public void setSubjectCourses(List<SubjectCourse> subjectCourses) {
 		this.subjectCourses = subjectCourses;
 	}
 	public Course() {
