@@ -69,8 +69,7 @@ public class UserAction extends ActionSupport {
 		user = userBusiness.login(input_email, input_pass);
 
 		if (user == null) {
-			session = ActionContext.getContext().getSession();
-			session.put("currentUser", null);
+			session = ActionContext.getContext().getSession();			
 			return ERROR;
 		} else {
 			session = ActionContext.getContext().getSession();
@@ -100,13 +99,12 @@ public class UserAction extends ActionSupport {
 		userList = userBusiness.listUser();
 		return SUCCESS;
 	}
-	public String create(){
-		
+	public String create(){				
 		try {			
 			if(user.getPassword().equals(user.getConfirmPass())){				
 				userBusiness.addUser(user);
 				userList = userBusiness.listUser();			
-			}						
+			}			
 		}catch (Exception e){
 			e.printStackTrace();
 		}

@@ -13,8 +13,7 @@ Detail: <s:property value="course.detail" /><br>
 	<br>
 	<s:iterator value="course.subjectCourses">
 		<a href="<s:url value="/subjects/detail"/><s:property value="subjects.id"/>">
-			<button type="button" class="btn btn-info"><s:property value="subjects.name"/></button></a>
-				
+			<button type="button" class="btn btn-info"><s:property value="subjects.name"/></button></a>				
 	</s:iterator>
 </s:if>
 <s:else>

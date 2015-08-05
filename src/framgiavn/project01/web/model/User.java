@@ -2,6 +2,7 @@ package framgiavn.project01.web.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class User implements Serializable {	
 	/**
@@ -18,6 +19,8 @@ public class User implements Serializable {
 	private Date updateAt;
 	private String strSupervisor;	
 	private String confirmPass;
+	private List<Integer> listid; 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -71,5 +74,11 @@ public class User implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public List<Integer> getListid() {
+		return listid;
+	}
+	public void setListid(List<Integer> listid) {
+		this.listid = listid;
 	}			
 }

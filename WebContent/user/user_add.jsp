@@ -10,7 +10,7 @@
 		<input type="text" name="user.email" required value="" placeholder="Email" class="form-control">
 	</div>
 	<div class="form-group">
-		Is suppervisor?  <input type="checkbox" name="user.strSupervisor"  style="margin-left:5px;">		
+		Is suppervisor?  <input type="checkbox" name="user.strSupervisor"  style="margin-left:5px;">				
 	</div>
 	<div class="form-group">
 		<input type="password" name="user.password" required value="" placeholder="Password" class="form-control">

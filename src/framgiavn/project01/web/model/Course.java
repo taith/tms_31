@@ -12,8 +12,9 @@ public class Course implements Serializable {
 	private String detail;
 	private Date startDate;
 	private Date endDate;
+
 	private List<Integer> listSubjectId;
-	private Set<SubjectCourse> subjectCourses;
+	
 	
 	public List<Integer> getListSubjectId() {
 		return listSubjectId;
@@ -21,10 +22,13 @@ public class Course implements Serializable {
 	public void setListSubjectId(List<Integer> listSubjectId) {
 		this.listSubjectId = listSubjectId;
 	}
-	public Set<SubjectCourse> getSubjectCourses() {
+	
+	private List<SubjectCourse> subjectCourses;
+
+	public List<SubjectCourse> getSubjectCourses() {
 		return subjectCourses;
 	}
-	public void setSubjectCourses(Set<SubjectCourse> subjectCourses) {
+	public void setSubjectCourses(List<SubjectCourse> subjectCourses) {
 		this.subjectCourses = subjectCourses;
 	}
 	public Course() {

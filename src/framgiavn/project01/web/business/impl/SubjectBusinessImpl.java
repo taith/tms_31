@@ -10,7 +10,6 @@ class SubjectBusinessImpl implements SubjectBusiness {
 	
 	private SubjectDAO subjectDAO;
 	
-	private Subject subjectDB;
 
 	public SubjectDAO getSubjectDAO() {
 		return subjectDAO;

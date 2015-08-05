@@ -18,19 +18,6 @@
 			</div>
 
 			<div style="padding-top: 30px" class="panel-body">
-
-				<div style="display: none" id="login-alert"
-					class="alert alert-danger col-sm-12"></div>
-				<c:if test="${not empty error}">
-					<div class="error">${error}</div>
-				</c:if>
-				<c:if test="${not empty msg}">
-					<div class="msg">${msg}</div>
-				</c:if>
-
-
-
-
 				<form name="loginForm" id="loginform" action="dologin" method="POST">
 
 					<div style="margin-bottom: 25px" class="input-group">
@@ -55,11 +42,8 @@
 						</div>
 					</div>
 				</form>
-
 			</div>
 		</div>
 	</div>
-	<s:if test="#session.currentUser == null">
-	Login failed
-</s:if>
+	
 </s:else>

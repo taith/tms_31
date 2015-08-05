@@ -24,6 +24,12 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
+				
+
+				<s:if test="#session.currentUser == null">
+					<a id="signin-link" href="<s:url value="/login"/>"><strong>Login</strong></a>
+				</s:if>
+				<s:else>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="page-scroll"><a href="<s:url value="/courses/"/> ">Course</a>
 					</li>
@@ -32,11 +38,6 @@
 					<li class="page-scroll"><a href="<s:url value="/users/"/> ">All
 							Users</a></li>
 				</ul>
-
-				<s:if test="#session.currentUser == null">
-					<a id="signin-link" href="<s:url value="/login"/>"><strong>Login</strong></a>
-				</s:if>
-				<s:else>
 					<div class="active-links">
 						<div id="session">
 							<a id="signin-link" href="#"> Welcome <strong><s:property

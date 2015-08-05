@@ -21,5 +21,12 @@
 	<bean id="springSubjectAction" class="framgiavn.project01.web.action.SubjectAction"
 		scope="prototype">
 		<property name="subjectBusiness" ref="SubjectBusiness" />
+		<property name="taskBusiness" ref="TaskBusiness" />		
+	</bean>
+		
+	<!-- ================== TASK MODULE ================== -->
+	<bean id="springTaskAction" class="framgiavn.project01.web.action.TaskAction"
+		scope="prototype">
+		<property name="taskBusiness" ref="TaskBusiness" />
 	</bean>
 </beans>
