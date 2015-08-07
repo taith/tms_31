@@ -8,6 +8,8 @@ public interface CourseBusiness {
 	
 	List<Course> listCourse();
 	
+	List<Subject> listSubjectInCourse();
+	
 	Course findById(Integer id) throws Exception;
 
 	void addCourse(Course course);
@@ -15,4 +17,8 @@ public interface CourseBusiness {
 	void updateCourse(Course course) throws Exception;
 	
 	void deleteCourse(Integer id);
+	
+	void addSubjectCourse(SubjectCourse subjectCourse);
+	
+	void removeSubjectCourse(Integer subject_id, Integer course_id);
 }

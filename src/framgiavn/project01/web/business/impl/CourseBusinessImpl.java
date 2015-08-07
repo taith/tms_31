@@ -1,9 +1,9 @@
 package framgiavn.project01.web.business.impl;
 
-import framgiavn.project01.web.model.Course;
-import framgiavn.project01.web.model.SubjectCourse;
-import framgiavn.project01.web.dao.CourseDAO;
+import framgiavn.project01.web.model.*;
+import framgiavn.project01.web.dao.*;
 
+import java.util.Iterator;
 import java.util.List;
 
 import framgiavn.project01.web.business.CourseBusiness;
@@ -11,8 +11,25 @@ import framgiavn.project01.web.business.CourseBusiness;
 public class CourseBusinessImpl implements CourseBusiness {
 
 	private CourseDAO courseDAO;
-	
-	
+	private SubjectDAO subjectDAO;
+	private SubjectCourseDAO subjectCourseDAO;
+
+	public SubjectCourseDAO getSubjectCourseDAO() {
+		return subjectCourseDAO;
+	}
+
+	public void setSubjectCourseDAO(SubjectCourseDAO subjectCourseDAO) {
+		this.subjectCourseDAO = subjectCourseDAO;
+	}
+
+	public SubjectDAO getSubjectDAO() {
+		return subjectDAO;
+	}
+
+	public void setSubjectDAO(SubjectDAO subjectDAO) {
+		this.subjectDAO = subjectDAO;
+	}
+
 	public CourseDAO getCourseDAO() {
 		return courseDAO;
 	}
@@ -59,7 +76,29 @@ public class CourseBusinessImpl implements CourseBusiness {
 	@Override
 	public void addCourse(Course course) {
 		courseDAO.addCourse(course);
-		
+		Iterator<Integer> subjectId = course.getListSubjectId().iterator();
+		while(subjectId.hasNext()){
+			SubjectCourse subjectCourse = new SubjectCourse();
+			subjectCourse.setSubject_id(subjectId.next());
+			subjectCourse.setCourse_id(course.getId());
+			subjectCourseDAO.addSubjectToCourse(subjectCourse);
+		}
 	}
+
+	@Override
+	public List<Subject> listSubjectInCourse() {
+		return subjectDAO.listSubject();
+	}
+
+	@Override
+	public void addSubjectCourse(SubjectCourse subjectCourse) {
+		subjectCourseDAO.addSubjectToCourse(subjectCourse);
+	}
+
+	@Override
+	public void removeSubjectCourse(Integer subject_id, Integer course_id) {
+		subjectCourseDAO.removeSubjectFromCourse(subject_id, course_id);
+	}
+
 
 }

@@ -8,12 +8,12 @@
 			<result name="success">AllCourse</result>
 		</action>
 		
-		<action name="new">
-		    <result>Course.Add</result>
+		<action name="new" class="springCourseAction" method="newCoursePage">
+		    <result name="success">Course.Add</result>
 		</action>
 		
 		<action name="create" class="springCourseAction" method="newCourse">
-			<result name="success">AllCourse</result>
+			<result name="success" type="redirect">/courses/</result>
 		</action>
 		
 		<action name="detail*" class="springCourseAction" method="showCourse">
@@ -35,6 +35,19 @@
 		<action name="edit*" class="springCourseAction" method="editCoursePage">
 			<param name="course.id">{1}</param>
 		    <result>Course.Update</result>
+		</action>
+		<action name="add_subject" class="springCourseAction" method="addSubjectCourse">
+		    <result name="success" type="redirect">
+		    	<param name="location">/courses/edit${subjectCourse.course_id}</param>
+		    </result>
+		</action>
+		
+		<action name="remove_subject" class="springCourseAction" method="removeSubjectCourse">
+			<param name="subjectCourse.subject_id">{1}</param>
+			<param name="subjectCourse.course_id">{2}</param>
+		    <result name="success" type="redirect">
+		    	<param name="location">/courses/edit${subjectCourse.course_id}</param>
+		    </result>
 		</action>
 	</package>
 </struts>

@@ -1,6 +1,7 @@
 package framgiavn.project01.web.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 public class Subject implements Serializable {
