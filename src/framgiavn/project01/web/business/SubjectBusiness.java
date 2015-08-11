@@ -8,6 +8,10 @@ public interface SubjectBusiness {
 	
 	List<Subject> listSubject();
 	
+	List<Subject> listSubjectByCoureId(Integer id);
+	
+	List<Subject> listSubjectByNotCourseId(Integer id);
+	
 	void addSubject(Subject subject);
 	
 	void updateSubject(Subject subject) throws Exception;

@@ -14,6 +14,7 @@
 	<bean id="springCourseAction" class="framgiavn.project01.web.action.CourseAction"
 		scope="prototype">
 		<property name="courseBusiness" ref="CourseBusiness" />
+		<property name="subjectBusiness" ref="SubjectBusiness" />
 	</bean>
 	
 	<!-- ================== SUBJECT MODULE ================== -->
