@@ -4,18 +4,17 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import framgiavn.project01.web.business.*;
 import framgiavn.project01.web.model.*;
-import framgiavn.project01.web.ulti.Logit2;
 
 public class CourseAction extends ActionSupport {
 	
 	CourseBusiness courseBusiness;
 	SubjectBusiness subjectBusiness;
 	Course course;
+
 	Subject subject;
 	SubjectCourse subjectCourse;
 	public List<Course> courseList = new ArrayList<Course>();
@@ -72,8 +71,7 @@ public class CourseAction extends ActionSupport {
 		this.courseList = courseList;
 	}
 	
-	public String listAllCourse() {
-		
+	public String listAllCourse() {		
 		courseList = courseBusiness.listCourse();
 		
 		return SUCCESS;
@@ -81,7 +79,7 @@ public class CourseAction extends ActionSupport {
 	
 	public String showCourse() {
 		try {
-			course = courseBusiness.findById(course.getId());
+			course = courseBusiness.findById(course.getId());			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -129,6 +127,7 @@ public class CourseAction extends ActionSupport {
 		}
 		return SUCCESS;
 	}
+
 	
 	public String addSubjectCourse() {
 		courseBusiness.addSubjectCourse(subjectCourse);
@@ -142,3 +141,4 @@ public class CourseAction extends ActionSupport {
 		return SUCCESS;
 	}
 }
+

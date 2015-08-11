@@ -3553,3 +3553,19 @@ span.bets_odd {
 .bet1x2ViewId {
 	background: #f9f9f9 !important;
 }
+#tasks{
+	margin-bottom: 20px;
+}
+.task-item{
+	margin-top:10px;		
+	margin-left:30px;
+	border-bottom: 2px dotted #00C0FF;
+	padding-bottom: 40px;
+}
+
+
+.formtemp{
+	width:50%;
+	margin-left:25%;
+}
+#addtask:hover{cursor: pointer;}

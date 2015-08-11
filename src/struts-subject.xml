@@ -27,7 +27,7 @@
 		</action>
 		
 		<action name="update" class="springSubjectAction" method="updateSubject" >
-		    <result name="success">AllCourse</result>
+		    <result name="success">Subject.Info</result>
 		    <result name="input">Subject.Update</result>
 		    <result name="error">Subject.Update</result>
 		</action>

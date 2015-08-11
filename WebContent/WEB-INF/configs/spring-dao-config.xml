@@ -8,7 +8,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	
+
 	<bean name="CourseDAO" class="framgiavn.project01.web.dao.impl.CourseDAOImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -19,7 +19,13 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+
 	<bean name="SubjectCourseDAO" class="framgiavn.project01.web.dao.impl.SubjectCourseDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean name="TaskDAO" class="framgiavn.project01.web.dao.impl.TaskDAOImpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>

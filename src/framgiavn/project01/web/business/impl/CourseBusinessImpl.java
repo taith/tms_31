@@ -75,6 +75,7 @@ public class CourseBusinessImpl implements CourseBusiness {
 
 	@Override
 	public void addCourse(Course course) {
+
 		courseDAO.addCourse(course);
 		Iterator<Integer> subjectId = course.getListSubjectId().iterator();
 		while(subjectId.hasNext()){
