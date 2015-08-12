@@ -3,6 +3,7 @@ package framgiavn.project01.web.business.impl;
 import framgiavn.project01.web.model.*;
 import framgiavn.project01.web.dao.*;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,9 +12,27 @@ import framgiavn.project01.web.business.CourseBusiness;
 public class CourseBusinessImpl implements CourseBusiness {
 
 	private CourseDAO courseDAO;
+	private UserDAO userDAO;
 	private SubjectDAO subjectDAO;
 	private SubjectCourseDAO subjectCourseDAO;
+	private TakeCourseDAO takeCourseDAO;
+	
+	public TakeCourseDAO getTakeCourseDAO() {
+		return takeCourseDAO;
+	}
 
+	public void setTakeCourseDAO(TakeCourseDAO takeCourseDAO) {
+		this.takeCourseDAO = takeCourseDAO;
+	}
+
+	public UserDAO getUserDAO() {
+		return userDAO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+	
 	public SubjectCourseDAO getSubjectCourseDAO() {
 		return subjectCourseDAO;
 	}
@@ -99,6 +118,33 @@ public class CourseBusinessImpl implements CourseBusiness {
 	@Override
 	public void removeSubjectCourse(Integer subject_id, Integer course_id) {
 		subjectCourseDAO.removeSubjectFromCourse(subject_id, course_id);
+	}
+
+	@Override
+	public User findUserById(Integer id) throws Exception {
+		try{
+			return getUserDAO().findById(id, false);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public List<User> listUserNotInCourse(Integer id) {
+		return getUserDAO().listUserNotInCourse(id, false);
+	}
+
+	@Override
+	public void addUserCourse(TakeCourse takeCourse) {
+		takeCourse.setFinished(0);
+		takeCourse.setCreateAt(new Date());
+		takeCourse.setUpdateAt(new Date());
+		takeCourseDAO.addUserToSubject(takeCourse);
+	}
+
+	@Override
+	public void removeUserCourse(Integer user_id, Integer course_id) {
+		takeCourseDAO.removeUserFromCourse(user_id, course_id);
 	}
 
 

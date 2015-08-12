@@ -26,8 +26,19 @@
         </property>
         <property name="updateAt" type="java.util.Date">
             <column name="update_at" length="50" />
-        </property>   
+        </property> 
+        <bag name="takeCourses" table="take_courses"
+                inverse="true" lazy="false" fetch="select">
+            <key column="user_id" not-null="true" />
+            <one-to-many class="framgiavn.project01.web.model.TakeCourse" />
+        </bag> 
     </class>
+
+	<query name="User.SelectMemberNotInCourse">
+    	select user  
+    	from User user
+    	where ( user.suppervisor=0 and not exists ( from user.takeCourses where course_id=:id )) 
+    </query>
 
     <query name="User.SelectUserById">
     	select user  

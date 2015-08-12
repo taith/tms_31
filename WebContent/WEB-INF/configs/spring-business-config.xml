@@ -11,15 +11,18 @@
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.UserBusinessImpl">
 				<property name="userDAO" ref="UserDAO" />
+				<property name="takeCourseDAO" ref="TakeCourseDAO" />
 			</bean>
 		</property>
 	</bean>
 	<bean id="CourseBusiness" parent="transactionProxyTemplate">
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.CourseBusinessImpl">
+				<property name="userDAO" ref="UserDAO" />
 				<property name="courseDAO" ref="CourseDAO" />
 				<property name="subjectDAO" ref="SubjectDAO" />
 				<property name="subjectCourseDAO" ref="SubjectCourseDAO" />
+				<property name="takeCourseDAO" ref="TakeCourseDAO" />
 			</bean>
 		</property>
 	</bean>

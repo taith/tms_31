@@ -14,16 +14,21 @@ public class Course implements Serializable {
 	private Date endDate;
 
 	private List<Integer> listSubjectId;
-	
-	
+	private List<SubjectCourse> subjectCourses;
+	private List<TakeCourse> takeCourses;
+
+	public List<TakeCourse> getTakeCourses() {
+		return takeCourses;
+	}
+	public void setTakeCourses(List<TakeCourse> takeCourses) {
+		this.takeCourses = takeCourses;
+	}
 	public List<Integer> getListSubjectId() {
 		return listSubjectId;
 	}
 	public void setListSubjectId(List<Integer> listSubjectId) {
 		this.listSubjectId = listSubjectId;
 	}
-	
-	private List<SubjectCourse> subjectCourses;
 
 	public List<SubjectCourse> getSubjectCourses() {
 		return subjectCourses;

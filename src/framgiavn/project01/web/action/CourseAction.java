@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import framgiavn.project01.web.business.*;
@@ -13,15 +16,40 @@ public class CourseAction extends ActionSupport {
 	
 	CourseBusiness courseBusiness;
 	SubjectBusiness subjectBusiness;
+	
 	Course course;
-
 	Subject subject;
+	User user;
+	
 	SubjectCourse subjectCourse;
+	TakeCourse takeCourse;
+	
+	private Map<String, Object> session;
+	
 	public List<Course> courseList = new ArrayList<Course>();
 	public List<Subject> subjectList = new ArrayList<Subject>();
 	public List<Subject> subjectCourseList = new ArrayList<Subject>();
 	public List<Subject> notSubjectCourseList = new ArrayList<Subject>();
+	public List<User> userNotInCourseList = new ArrayList<User>();
 	
+	public TakeCourse getTakeCourse() {
+		return takeCourse;
+	}
+	public void setTakeCourse(TakeCourse takeCourse) {
+		this.takeCourse = takeCourse;
+	}
+	public List<User> getUserNotInCourseList() {
+		return userNotInCourseList;
+	}
+	public void setUserNotInCourseList(List<User> userNotInCourseList) {
+		this.userNotInCourseList = userNotInCourseList;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public void setSubjectBusiness(SubjectBusiness subjectBusiness) {
 		this.subjectBusiness = subjectBusiness;
 	}
@@ -71,15 +99,24 @@ public class CourseAction extends ActionSupport {
 		this.courseList = courseList;
 	}
 	
-	public String listAllCourse() {		
-		courseList = courseBusiness.listCourse();
-		
+	public String listAllCourse() throws Exception {
+		session = ActionContext.getContext().getSession();
+		User userSession = (User) session.get("currentUser");
+		if(userSession.getSuppervisor() == 1)
+			courseList = courseBusiness.listCourse();
+		else
+			user = courseBusiness.findUserById(userSession.getId());
+	
 		return SUCCESS;
 	}
 	
 	public String showCourse() {
 		try {
-			course = courseBusiness.findById(course.getId());			
+			course = courseBusiness.findById(course.getId());
+			session = ActionContext.getContext().getSession();
+			User userSession = (User) session.get("currentUser");
+			if(userSession.getSuppervisor() == 1)
+				userNotInCourseList = courseBusiness.listUserNotInCourse(course.getId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -137,6 +174,18 @@ public class CourseAction extends ActionSupport {
 	
 	public String removeSubjectCourse() {
 		courseBusiness.removeSubjectCourse(subjectCourse.getSubject_id(), subjectCourse.getCourse_id());
+		
+		return SUCCESS;
+	}
+	
+	public String addUserCourse() {
+		courseBusiness.addUserCourse(takeCourse);
+		
+		return SUCCESS;
+	}
+	
+	public String removeUserCourse() {
+		courseBusiness.removeUserCourse(takeCourse.getUser_id(), takeCourse.getCourse_id());
 		
 		return SUCCESS;
 	}

@@ -25,6 +25,13 @@
         	table="subjects_courses" fetch="select" >
         	<key column="course_id" not-null="true" />
             <one-to-many class="framgiavn.project01.web.model.SubjectCourse" />
+
+        </bag> 
+        <bag name="takeCourses" table="take_courses" inverse="true" cascade="all"
+        	lazy="false" fetch="select">
+            <key column="course_id" not-null="true" />
+            <one-to-many class="framgiavn.project01.web.model.TakeCourse" />
+
         </bag> 
 	</class>
 	

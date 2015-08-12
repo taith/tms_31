@@ -5,18 +5,10 @@ import java.util.Set;
 
 public class SubjectCourse implements Serializable {
 	
-	private Integer id;
 	private Integer subject_id;
 	private Integer course_id;
 	private Subject subjects;
 	private Course courses;
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	
 	public Course getCourses() {
 		return courses;

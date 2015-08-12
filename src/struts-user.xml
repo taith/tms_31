@@ -23,7 +23,7 @@
 			<param name="user.id">{1}</param>
 			<result name="success">User.Info</result>
 		</action>		
-		<action name="new">			
+		<action name="new" class="springUserAction" method="addUserPage">			
 			<result name="success">User.add</result>
 		</action>
 		<action name="create" class="springUserAction" method="create">			
@@ -52,7 +52,7 @@
 			<result>User.login</result>
 		</action>
 		<action name="dologin" class="springUserAction" method="dologin">
-			<result name="success">User.Info</result>
+			<result name="success" type="redirect">/courses/</result>
 			<result name="error">User.login</result>
 		</action>
 		<action name="logout" class="springUserAction" method="logout">

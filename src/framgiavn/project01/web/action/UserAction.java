@@ -8,8 +8,8 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-import framgiavn.project01.web.business.UserBusiness;
-import framgiavn.project01.web.model.User;
+import framgiavn.project01.web.business.*;
+import framgiavn.project01.web.model.*;
 import framgiavn.project01.web.ulti.Helpers;
 
 public class UserAction extends ActionSupport {
@@ -20,12 +20,43 @@ public class UserAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private UserBusiness userBusiness = null;
+	CourseBusiness courseBusiness;
 	private User user = null;
+	Course course;
 	private Map<String, Object> session;
 	public List<User> userList = new ArrayList<User>();
+	public List<Course> courseList = new ArrayList<Course>();
 	
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public List<Course> getCourseList() {
+		return courseList;
+	}
+
+	public void setCourseList(List<Course> courseList) {
+		this.courseList = courseList;
+	}
+
+	public void setCourseBusiness(CourseBusiness courseBusiness) {
+		this.courseBusiness = courseBusiness;
+	}
+
 	public void setUserBusiness(UserBusiness userBusiness) {
 		this.userBusiness = userBusiness;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 	public User getUser() {
@@ -99,11 +130,11 @@ public class UserAction extends ActionSupport {
 		userList = userBusiness.listUser();
 		return SUCCESS;
 	}
-	public String create(){				
+	public String create(){			
 		try {			
 			if(user.getPassword().equals(user.getConfirmPass())){				
 				userBusiness.addUser(user);
-				userList = userBusiness.listUser();			
+				userList = userBusiness.listUser();
 			}			
 		}catch (Exception e){
 			e.printStackTrace();
@@ -149,6 +180,12 @@ public class UserAction extends ActionSupport {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}						
+		return SUCCESS;
+	}
+	
+	public String addUserPage() {
+		courseList = courseBusiness.listCourse();
+		
 		return SUCCESS;
 	}
 }

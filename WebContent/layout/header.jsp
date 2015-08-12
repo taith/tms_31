@@ -31,12 +31,14 @@
 				</s:if>
 				<s:else>
 				<ul class="nav navbar-nav navbar-right">
+				<s:if test="#session.currentUser.suppervisor == 1">
 					<li class="page-scroll"><a href="<s:url value="/courses/"/> ">Course</a>
 					</li>
 					<li class="page-scroll"><a href="<s:url value="/subjects/"/> ">Subject</a>
 					</li>
 					<li class="page-scroll"><a href="<s:url value="/users/"/> ">All
 							Users</a></li>
+				</s:if>
 				</ul>
 					<div class="active-links">
 						<div id="session">

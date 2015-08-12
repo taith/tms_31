@@ -19,8 +19,24 @@ public class User implements Serializable {
 	private Date updateAt;
 	private String strSupervisor;	
 	private String confirmPass;
-	private List<Integer> listid; 
 	
+	private List<Course> userCourses;
+	private List<Integer> listid; 
+	private List<TakeCourse> takeCourses;
+	
+	public List<Course> getUserCourses() {
+		return userCourses;
+	}
+	public void setUserCourses(List<Course> userCourses) {
+		this.userCourses = userCourses;
+	}
+	public List<TakeCourse> getTakeCourses() {
+		return takeCourses;
+	}
+	public void setTakeCourses(List<TakeCourse> takeCourses) {
+		this.takeCourses = takeCourses;
+	}
+
 	public Integer getId() {
 		return id;
 	}

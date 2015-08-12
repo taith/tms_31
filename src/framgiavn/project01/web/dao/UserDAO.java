@@ -13,4 +13,5 @@ public interface UserDAO {
 	public void updateUser(User user) throws Exception;	
 	public void deleteUser(Integer id) throws Exception;
 	public List<User> listUser();
+	public List<User> listUserNotInCourse(Integer id, boolean lock);
 }

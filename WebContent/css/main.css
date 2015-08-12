@@ -16,6 +16,9 @@
 	text-align: center;
 	background-color: #31B0D5;
 }
+#footer {
+	clear: both;
+}
 #header-main {
 	height: 60px;
 	position: relative;

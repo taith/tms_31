@@ -107,4 +107,19 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 			throw re;
 		}
 	}
+
+	@Override
+	public List<User> listUserNotInCourse(Integer id, boolean lock) {
+		log.debug("List member not in course");
+		try {
+			Query query = getSession().getNamedQuery("User.SelectMemberNotInCourse");
+			if(lock)
+				query.setLockMode("user", LockMode.UPGRADE);
+			query.setParameter("id", id);
+			return query.list();
+		} catch (RuntimeException re) {
+			log.error("get user failed", re);
+			throw re;
+		}
+	}
 }

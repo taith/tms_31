@@ -49,5 +49,17 @@
 		    	<param name="location">/courses/edit${subjectCourse.course_id}</param>
 		    </result>
 		</action>
+		<action name="add_user" class="springCourseAction" method="addUserCourse" >
+			<result name="success" type="redirect">
+		    	<param name="location">/courses/detail${takeCourse.course_id}</param>
+		    </result>
+		</action>
+		<action name="remove_user" class="springCourseAction" method="removeUserCourse">
+			<param name="takeCourse.user_id">{1}</param>
+			<param name="takeCourse.course_id">{2}</param>
+		    <result name="success" type="redirect">
+		    	<param name="location">/courses/detail${takeCourse.course_id}</param>
+		    </result>
+		</action>
 	</package>
 </struts>
