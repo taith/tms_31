@@ -37,7 +37,7 @@
 	<query name="User.SelectMemberNotInCourse">
     	select user  
     	from User user
-    	where ( user.suppervisor=0 and not exists ( from user.takeCourses where course_id=:id )) 
+    	where not exists ( from user.takeCourses where course_id=:id ) 
     </query>
 
     <query name="User.SelectUserById">

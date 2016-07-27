@@ -13,10 +13,17 @@ public class Course implements Serializable {
 	private Date startDate;
 	private Date endDate;
 
+	private List<User> users;
 	private List<Integer> listSubjectId;
 	private List<SubjectCourse> subjectCourses;
 	private List<TakeCourse> takeCourses;
 
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 	public List<TakeCourse> getTakeCourses() {
 		return takeCourses;
 	}

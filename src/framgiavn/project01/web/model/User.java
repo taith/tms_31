@@ -20,16 +20,9 @@ public class User implements Serializable {
 	private String strSupervisor;	
 	private String confirmPass;
 	
-	private List<Course> userCourses;
 	private List<Integer> listid; 
 	private List<TakeCourse> takeCourses;
 	
-	public List<Course> getUserCourses() {
-		return userCourses;
-	}
-	public void setUserCourses(List<Course> userCourses) {
-		this.userCourses = userCourses;
-	}
 	public List<TakeCourse> getTakeCourses() {
 		return takeCourses;
 	}

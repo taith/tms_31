@@ -16,6 +16,7 @@ public class CourseAction extends ActionSupport {
 	
 	CourseBusiness courseBusiness;
 	SubjectBusiness subjectBusiness;
+	UserBusiness userBusiness;
 	
 	Course course;
 	Subject subject;
@@ -31,6 +32,7 @@ public class CourseAction extends ActionSupport {
 	public List<Subject> subjectCourseList = new ArrayList<Subject>();
 	public List<Subject> notSubjectCourseList = new ArrayList<Subject>();
 	public List<User> userNotInCourseList = new ArrayList<User>();
+	public List<User> userList = new ArrayList<User>();
 	
 	public TakeCourse getTakeCourse() {
 		return takeCourse;
@@ -49,6 +51,10 @@ public class CourseAction extends ActionSupport {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public void setUserBusiness(UserBusiness userBusiness) {
+		this.userBusiness = userBusiness;
 	}
 	public void setSubjectBusiness(SubjectBusiness subjectBusiness) {
 		this.subjectBusiness = subjectBusiness;
@@ -99,6 +105,12 @@ public class CourseAction extends ActionSupport {
 		this.courseList = courseList;
 	}
 	
+	public List<User> getUserList() {
+		return userList;
+	}
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
 	public String listAllCourse() throws Exception {
 		session = ActionContext.getContext().getSession();
 		User userSession = (User) session.get("currentUser");
@@ -150,6 +162,7 @@ public class CourseAction extends ActionSupport {
 	
 	public String newCoursePage() {
 		subjectList = subjectBusiness.listSubject();
+		userList = userBusiness.listUser();
 		
 		return SUCCESS;
 	}

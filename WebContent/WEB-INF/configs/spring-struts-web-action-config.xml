@@ -16,6 +16,7 @@
 		scope="prototype">
 		<property name="courseBusiness" ref="CourseBusiness" />
 		<property name="subjectBusiness" ref="SubjectBusiness" />
+		<property name="userBusiness" ref="UserBusiness" />
 	</bean>
 	
 	<!-- ================== SUBJECT MODULE ================== -->
@@ -29,5 +30,11 @@
 	<bean id="springTaskAction" class="framgiavn.project01.web.action.TaskAction"
 		scope="prototype">
 		<property name="taskBusiness" ref="TaskBusiness" />
+	</bean>
+	
+	<!-- ================== TASK MODULE ================== -->
+	<bean id="springAssignUserAction" class="framgiavn.project01.web.action.AssignUserAction"
+		scope="prototype">
+		
 	</bean>
 </beans>

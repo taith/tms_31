@@ -23,8 +23,8 @@
 			<param name="user.id">{1}</param>
 			<result name="success">User.Info</result>
 		</action>		
-		<action name="new" class="springUserAction" method="addUserPage">			
-			<result name="success">User.add</result>
+		<action name="new">			
+			<result>User.add</result>
 		</action>
 		<action name="create" class="springUserAction" method="create">			
 			<result name="success">User.all</result>			

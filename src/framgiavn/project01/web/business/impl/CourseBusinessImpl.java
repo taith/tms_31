@@ -103,6 +103,18 @@ public class CourseBusinessImpl implements CourseBusiness {
 			subjectCourse.setCourse_id(course.getId());
 			subjectCourseDAO.addSubjectToCourse(subjectCourse);
 		}
+		List<User> users;
+		users = course.getUsers();
+		for(User userCourses : users) {
+			TakeCourse takeCourse = new TakeCourse();
+			takeCourse.setUser_id(userCourses.getId());
+			takeCourse.setCourse_id(course.getId());
+			takeCourse.setFinished(0);
+			takeCourse.setCreateAt(new Date());
+			takeCourse.setUpdateAt(new Date());
+			
+			takeCourseDAO.addUserToSubject(takeCourse);
+		}
 	}
 
 	@Override

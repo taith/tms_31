@@ -13,7 +13,6 @@ import framgiavn.project01.web.ulti.Logit2;
 public class UserBusinessImpl    implements UserBusiness {
 
 	private UserDAO userDAO;
-	private TakeCourseDAO takeCourseDAO;
 
 	public UserDAO getUserDAO() {
 		return userDAO;
@@ -75,27 +74,6 @@ public class UserBusinessImpl    implements UserBusiness {
 			user.setSuppervisor(0);
 		
 		userDAO.addUser(user);
-		List<Course> courses;
-		courses = user.getUserCourses();
-		for(Course userCourses : courses) {
-			TakeCourse takeCourse = new TakeCourse();
-			takeCourse.setUser_id(user.getId());
-			takeCourse.setCourse_id(userCourses.getId());
-			takeCourse.setFinished(0);
-			takeCourse.setCreateAt(new Date());
-			takeCourse.setUpdateAt(new Date());
-			
-			takeCourseDAO.addUserToSubject(takeCourse);
-		}
-	}
-
-	
-	public TakeCourseDAO getTakeCourseDAO() {
-		return takeCourseDAO;
-	}
-
-	public void setTakeCourseDAO(TakeCourseDAO takeCourseDAO) {
-		this.takeCourseDAO = takeCourseDAO;
 	}
 
 	@Override

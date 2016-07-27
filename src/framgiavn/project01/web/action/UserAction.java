@@ -183,9 +183,4 @@ public class UserAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
-	public String addUserPage() {
-		courseList = courseBusiness.listCourse();
-		
-		return SUCCESS;
-	}
 }
